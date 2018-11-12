@@ -11,13 +11,13 @@ import org.springframework.stereotype.Service;
 public class SampleService {
 
     @Autowired
-    SampleRepository sampleRepository;
+    private SampleRepository sampleRepository;
 
-        public Sample createNewSample(String data){
+    public Sample createNewSample(String data)
+    {
         SampleModel sampleModel = new SampleModel(data);
         SampleModel sampleModelSaved = sampleRepository.save(sampleModel);
         return new Sample(sampleModelSaved.getId(), sampleModelSaved.getData()) ;
-
     }
 
     public Sample getSample(long id)
